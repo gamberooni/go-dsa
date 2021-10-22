@@ -40,7 +40,7 @@ func (s Stack) Peek() int {
 // Push adds one element to the stack
 // returns error if stack is already full
 func (s *Stack) Push(element int) error {
-	if s.Top == s.Capacity-1 {
+	if s.IsFull() {
 		return ErrPushFullStack
 	}
 	s.Elements = append(s.Elements, element)
@@ -52,7 +52,7 @@ func (s *Stack) Push(element int) error {
 // returns error if the stack is empty
 func (s *Stack) Pop() (int, error) {
 	// attempt to pop empty stack returns error
-	if s.Top == -1 {
+	if s.IsEmpty() {
 		return 0, ErrPopEmptyStack
 	}
 	pop := s.Elements[s.Top]
