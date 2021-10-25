@@ -1,14 +1,14 @@
-package linkedlist
+package SinglyLinkedList
 
 import "fmt"
 
 const (
-	ErrOutOfBounds = LinkedListError("specified index out of bounds")
+	ErrOutOfBounds = SinglyLinkedListError("specified index out of bounds")
 )
 
-type LinkedListError string
+type SinglyLinkedListError string
 
-func (l LinkedListError) Error() string {
+func (l SinglyLinkedListError) Error() string {
 	return string(l)
 }
 
@@ -17,13 +17,13 @@ type Node struct {
 	next  *Node // next pointer of the last node is nil
 }
 
-type LinkedList struct {
+type SinglyLinkedList struct {
 	head   *Node // points to the first node of the linked list
 	length int
 }
 
 // GetNode traverses to the node of the specified index and returns that node
-func (l *LinkedList) GetNode(index int) (*Node, error) {
+func (l *SinglyLinkedList) GetNode(index int) (*Node, error) {
 	if (index > l.length-1) || index < 0 {
 		return nil, ErrOutOfBounds
 	}
@@ -36,7 +36,7 @@ func (l *LinkedList) GetNode(index int) (*Node, error) {
 }
 
 // Insert inserts new node at the end of the linked list
-func (l *LinkedList) Insert(value int) {
+func (l *SinglyLinkedList) Insert(value int) {
 	node := Node{}
 	node.value = value
 	// if linked list is empty
@@ -52,7 +52,7 @@ func (l *LinkedList) Insert(value int) {
 }
 
 // InsertAt inserts a node at the specified index
-func (l *LinkedList) InsertAt(index, value int) error {
+func (l *SinglyLinkedList) InsertAt(index, value int) error {
 	// traverse to the specified index
 	// point the previous node of the specified index to the new node
 	// point the new node to the node that was originally at the specified index
@@ -73,7 +73,7 @@ func (l *LinkedList) InsertAt(index, value int) error {
 }
 
 // Delete deletes the last node of the linked list
-func (l *LinkedList) Delete() error {
+func (l *SinglyLinkedList) Delete() error {
 	ptr, err := l.GetNode(l.length - 2)
 	if err != nil {
 		return err
@@ -84,7 +84,7 @@ func (l *LinkedList) Delete() error {
 }
 
 // DeleteAt deletes the node at the specified index
-func (l *LinkedList) DeleteAt(index int) error {
+func (l *SinglyLinkedList) DeleteAt(index int) error {
 	if index == 0 {
 		l.head = l.head.next
 		l.length--
@@ -105,7 +105,7 @@ func (l *LinkedList) DeleteAt(index int) error {
 
 // Search searches for the specified value from the linked list and returns the index of the node
 // returns -1 if not found or if linked list is empty
-func (l *LinkedList) Search(value int) int {
+func (l *SinglyLinkedList) Search(value int) int {
 	if l.length == 0 {
 		return -1
 	}
@@ -119,7 +119,8 @@ func (l *LinkedList) Search(value int) int {
 	return -1
 }
 
-func (l *LinkedList) Sort() {
+// Sort sorts the linked list by ascending order
+func (l *SinglyLinkedList) Sort() {
 	if l.length == 0 {
 		return
 	}
@@ -145,7 +146,7 @@ func (l *LinkedList) Sort() {
 }
 
 // Display shows the nodes in the linked list
-func (l *LinkedList) Display() {
+func (l *SinglyLinkedList) Display() {
 	ptr := l.head
 	for i := 0; i < l.length; i++ {
 		fmt.Printf("%d--->", ptr.value)

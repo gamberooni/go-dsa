@@ -3,12 +3,12 @@ package main
 import (
 	"fmt"
 
-	linkedlist "github.com/gamberooni/go-dsa/linked_list"
+	singlylinkedlist "github.com/gamberooni/go-dsa/singly_linked_list"
 )
 
 // stack can be used to reverse numbers
 func main() {
-	l := linkedlist.LinkedList{}
+	l := singlylinkedlist.SinglyLinkedList{}
 	l.Insert(6)
 	l.Insert(5)
 	l.Insert(4)

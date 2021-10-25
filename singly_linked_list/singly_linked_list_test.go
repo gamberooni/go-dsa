@@ -1,4 +1,4 @@
-package linkedlist
+package SinglyLinkedList
 
 import (
 	"reflect"
@@ -17,7 +17,7 @@ func assertError(t testing.TB, got, want error) {
 }
 
 func TestInsert(t *testing.T) {
-	l := LinkedList{}
+	l := SinglyLinkedList{}
 	l.Insert(4)
 	got := l.head.value
 	want := 4
@@ -27,7 +27,7 @@ func TestInsert(t *testing.T) {
 }
 
 func TestInsertAt(t *testing.T) {
-	l := LinkedList{}
+	l := SinglyLinkedList{}
 	l.Insert(4)
 	l.Insert(5)
 	l.Insert(6)
@@ -54,7 +54,7 @@ func TestInsertAt(t *testing.T) {
 }
 
 func TestDelete(t *testing.T) {
-	l := LinkedList{}
+	l := SinglyLinkedList{}
 	l.Insert(4)
 	l.Insert(5)
 	l.Insert(6)
@@ -69,7 +69,7 @@ func TestDelete(t *testing.T) {
 }
 
 func TestDeleteAt(t *testing.T) {
-	l := LinkedList{}
+	l := SinglyLinkedList{}
 	l.Insert(4)
 	l.Insert(5)
 	l.Insert(6)
@@ -97,7 +97,7 @@ func TestDeleteAt(t *testing.T) {
 
 func TestSearch(t *testing.T) {
 	t.Run("search for a value present in the linked list", func(t *testing.T) {
-		l := LinkedList{}
+		l := SinglyLinkedList{}
 		l.Insert(6)
 		l.Insert(5)
 		l.Insert(4)
@@ -111,7 +111,7 @@ func TestSearch(t *testing.T) {
 	})
 
 	t.Run("search for a value not present in the linked list", func(t *testing.T) {
-		l := LinkedList{}
+		l := SinglyLinkedList{}
 		l.Insert(6)
 		l.Insert(5)
 		l.Insert(4)
@@ -127,7 +127,7 @@ func TestSearch(t *testing.T) {
 }
 
 func TestSort(t *testing.T) {
-	l := LinkedList{}
+	l := SinglyLinkedList{}
 	l.Insert(6)
 	l.Insert(5)
 	l.Insert(4)
@@ -149,7 +149,7 @@ func TestSort(t *testing.T) {
 }
 
 func TestGetNode(t *testing.T) {
-	l := LinkedList{}
+	l := SinglyLinkedList{}
 	l.Insert(4)
 	l.Insert(5)
 	l.Insert(6)
